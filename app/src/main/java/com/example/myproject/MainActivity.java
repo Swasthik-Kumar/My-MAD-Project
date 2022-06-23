@@ -44,10 +44,10 @@ public class MainActivity extends AppCompatActivity {
                         role[0] = login_handler_cursor.getString(2);
 
                         if (password_typed.equals(password_recevied[0])) {
-                            if (role[0].equals("a")) {
+                            if (role[0].equals("admin")) {
                                 Intent intent = new Intent(MainActivity.this, admin_dashboard.class);
                                 startActivity(intent);
-                            } else if (role[0].equals("s")) {
+                            } else if (role[0].equals("student")) {
                                 Intent intent = new Intent(MainActivity.this, student_dashboard.class);
                                 startActivity(intent);
                             }

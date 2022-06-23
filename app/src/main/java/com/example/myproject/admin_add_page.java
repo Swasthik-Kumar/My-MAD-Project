@@ -20,8 +20,8 @@ public class admin_add_page extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_add_student_page);
-        username = findViewById(R.id.admin_update_username_entry);
-        password = findViewById(R.id.admin_update_password_entry);
+        username = findViewById(R.id.username);
+        password = findViewById(R.id.password);
         name = findViewById(R.id.admin_add_name);
         usn = findViewById(R.id.admin_add_usn);
         sem = findViewById(R.id.admin_add_sem);
@@ -47,7 +47,7 @@ public class admin_add_page extends AppCompatActivity {
                 }
                 else{
                     try{
-                        admin_add_handler.add_landlord(username_typed,password_typed);
+                        admin_add_handler.add_student(username_typed,password_typed);
                         Toast.makeText(admin_add_page.this, "Information added to database", Toast.LENGTH_SHORT).show();
                         username.setText("");
                         password.setText("");

@@ -36,10 +36,7 @@ public class view_all_details extends AppCompatActivity{
         sub5 = findViewById(R.id.admin_txtview_sub5);
         sub6 = findViewById(R.id.admin_txtview_sub6);
 
-        String landlord_id = getIntent().getStringExtra("landlord_id");
-        String labour_id = getIntent().getStringExtra("labour_id");
-        String salary = getIntent().getStringExtra("salary");
-        int salary_num = Integer.parseInt(salary);
+        String username = getIntent().getStringExtra("username");
 
         database_handler view_details_handler = new database_handler(this, "My_Project.db",null,1);
 
@@ -47,9 +44,9 @@ public class view_all_details extends AppCompatActivity{
 
         try {
 
-            view_details_handler_cursor = view_details_handler.get_student_info(String username);
+            view_details_handler_cursor = view_details_handler.get_student_info(username);
 
-            if (view_details_handler_cursor.getString(0).equals(labour_id)) {
+            if (view_details_handler_cursor.getString(0).equals(username)) {
                 name.setText(view_details_handler_cursor.getString(0));
                 usn.setText(view_details_handler_cursor.getString(1));
                 sem.setText(view_details_handler_cursor.getString(2));
