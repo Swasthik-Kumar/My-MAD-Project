@@ -7,13 +7,13 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
-public class admin_update_marks_search_page extends AppCompatActivity{
+public class admin_update_search_page extends AppCompatActivity{
     TextView search;
     ArrayList arrayList;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.admin_update_marks_search_page);
+        setContentView(R.layout.admin_update_search_page);
         search = findViewById(R.id.admin_search_student);
 
         String username_got = getIntent().getStringExtra("username");

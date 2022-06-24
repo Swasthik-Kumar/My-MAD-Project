@@ -67,7 +67,7 @@ public class database_handler extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put("username",username);
         values.put("password",password);
-        values.put("role","Admin");
+        values.put("role","admin");
         long k = db.insert(TABLE_NAME_LOGIN,null,values);
         db.close();
     }
