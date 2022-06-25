@@ -23,9 +23,9 @@ public class database_handler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String create_login_table = "CREATE TABLE if not exists login_table (username Text primary key,password Text, role Text)";
         sqLiteDatabase.execSQL(create_login_table);
-        String create_student_table = "CREATE TABLE if not exists student_table (username Text primary key,name Text ,usn Text, sem int,phno Text)";
+        String create_student_table = "CREATE TABLE if not exists student_table (username Text primary key,name Text ,usn Text, sem int,phno Text,foreign key (username) references login_table(username) on delete cascade)";
         sqLiteDatabase.execSQL(create_student_table);
-        String create_marks_table = "CREATE TABLE if not exists marks_table (username Text primary key,sub1 int,sub2 int,sub3 int,sub4 int,sub5 int,sub6 int)";
+        String create_marks_table = "CREATE TABLE if not exists marks_table (username Text primary key,sub1 int,sub2 int,sub3 int,sub4 int,sub5 int,sub6 int,foreign key (username) references login_table(username) on delete cascade)";
         sqLiteDatabase.execSQL(create_marks_table);
     }
 
@@ -51,7 +51,7 @@ public class database_handler extends SQLiteOpenHelper {
 
     public Cursor get_student_info(String username) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query("landlord_table",new String[]{"username","name","usn","sem","phone"},"username=?",new String[]{String.valueOf(username)},null,null,null);
+        Cursor cursor = db.query("student_table",new String[]{"username","name","usn","sem","phone"},"username=?",new String[]{String.valueOf(username)},null,null,null);
         if(cursor != null && cursor.moveToFirst()){
             Log.d("mytag",cursor.getString(0));
             Log.d("mytag",cursor.getString(1));
@@ -81,12 +81,12 @@ public class database_handler extends SQLiteOpenHelper {
         values.put("role","student");
         long k = db.insert(TABLE_NAME_LOGIN,null,values);
         values.put("username",username);
-        values_marks.put("subject 1","null");
-        values_marks.put("subject 2","null");
-        values_marks.put("subject 3","null");
-        values_marks.put("subject 4","null");
-        values_marks.put("subject 5","null");
-        values_marks.put("subject 6","null");
+        values_marks.put("subject 1",0);
+        values_marks.put("subject 2",0);
+        values_marks.put("subject 3",0);
+        values_marks.put("subject 4",0);
+        values_marks.put("subject 5",0);
+        values_marks.put("subject 6",0);
         long l = db.insert(TABLE_NAME_MARKS,null,values_marks);
         Log.d("mytag", String.valueOf(l));
         db.close();

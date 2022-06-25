@@ -1,41 +1,30 @@
 package com.example.myproject;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class admin_add_page extends AppCompatActivity {
-    EditText sub1,sub2,sub3,sub4,sub5,sub6;
-    EditText name,usn,sem,phno;
-    EditText username,password;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class admin_add_page extends AppCompatActivity{
+    EditText username;
+    EditText password;
     Button add;
     Button cancel;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.admin_add_student_page);
-        username = findViewById(R.id.username);
-        password = findViewById(R.id.password);
-        name = findViewById(R.id.admin_add_name);
-        usn = findViewById(R.id.admin_add_usn);
-        sem = findViewById(R.id.admin_add_sem);
-        phno = findViewById(R.id.admin_add_phno);
-        sub1 = findViewById(R.id.admin_add_sub1);
-        sub2 = findViewById(R.id.admin_add_sub2);
-        sub3 = findViewById(R.id.admin_add_sub3);
-        sub4 = findViewById(R.id.admin_add_sub4);
-        sub5 = findViewById(R.id.admin_add_sub5);
-        sub6 = findViewById(R.id.admin_add_sub6);
-        add = findViewById(R.id.admin_add_student);
-        cancel = findViewById(R.id.admin_cancel_student);
+        setContentView(R.layout.admin_add_page);
+        username = findViewById(R.id.add_admin_username);
+        password = findViewById(R.id.add_admin_password);
+        add = findViewById(R.id.admin_delete_student_btn);
+        cancel = findViewById(R.id.admin_cancel_student_btn);
 
-        database_handler admin_add_handler = new database_handler(this, "labour_management.db",null,1);
+
+        database_handler admin_add_handler = new database_handler(this, "My_Project.db",null,1);
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -47,12 +36,16 @@ public class admin_add_page extends AppCompatActivity {
                 }
                 else{
                     try{
-                        admin_add_handler.add_student(username_typed,password_typed);
-                        Toast.makeText(admin_add_page.this, "Information added to database", Toast.LENGTH_SHORT).show();
-                        username.setText("");
-                        password.setText("");
+                        long result = admin_add_handler.add_student(username_typed,password_typed);
+                        if(result!=-1) {
+                            Toast.makeText(admin_add_page.this, "Information added to database", Toast.LENGTH_SHORT).show();
+                            finish();
+                        }
+                        else{
+                            Toast.makeText(admin_add_page.this, "Username already found", Toast.LENGTH_SHORT).show();
+                        }
                     } catch (Exception e) {
-                        Toast.makeText(admin_add_page.this, "Username already found", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(admin_add_page.this, "Some error occurred", Toast.LENGTH_SHORT).show();
                     }
                 }
             }
@@ -60,16 +53,8 @@ public class admin_add_page extends AppCompatActivity {
         cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                name.setText("");
-                usn.setText("");
-                sem.setText("");
-                phno.setText("");
-                sub1.setText("");
-                sub2.setText("");
-                sub3.setText("");
-                sub4.setText("");
-                sub5.setText("");
-                sub6.setText("");
+                username.setText("");
+                password.setText("");
             }
         });
 

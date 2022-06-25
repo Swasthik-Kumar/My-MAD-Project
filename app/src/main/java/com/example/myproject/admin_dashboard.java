@@ -10,7 +10,7 @@ import android.widget.Button;
 public class admin_dashboard extends AppCompatActivity {
     Button add_student;
     Button view;
-    Button update_marks;
+    Button update_details;
     Button delete;
 
 
@@ -18,16 +18,16 @@ public class admin_dashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.admin_dashboard);
-        add_student = findViewById(R.id.adds);
-        view = findViewById(R.id.views);
-        update_marks = findViewById(R.id.updatem);
-        delete = findViewById(R.id.deletes);
+        add_student = findViewById(R.id.add_student);
+        view = findViewById(R.id.view_student);
+        update_details = findViewById(R.id.update_details);
+        delete = findViewById(R.id.delete_student);
 
 
         add_student.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(admin_dashboard.this, admin_add_page.class);
+                Intent intent = new Intent(admin_dashboard.this, admin_add_student_page.class);
                 startActivity(intent);
             }
         });
@@ -40,10 +40,10 @@ public class admin_dashboard extends AppCompatActivity {
             }
         });
 
-        update_marks.setOnClickListener(new View.OnClickListener() {
+        update_details.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(admin_dashboard.this, admin_update_page.class);
+                Intent intent = new Intent(admin_dashboard.this, admin_update_search_page.class);
                 startActivity(intent);
             }
         });

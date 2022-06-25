@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String username_typed = username.getText().toString();
                 String password_typed = password.getText().toString();
-//                login_handler.add_admin(username_typed,password_typed);
+                login_handler.add_admin(username_typed,password_typed);
                 if(username_typed.equals("") || password_typed.equals("")) {
                     Toast.makeText(MainActivity.this, "All fields are mandatory", Toast.LENGTH_SHORT).show();
                 }
@@ -46,9 +46,11 @@ public class MainActivity extends AppCompatActivity {
                         if (password_typed.equals(password_recevied[0])) {
                             if (role[0].equals("admin")) {
                                 Intent intent = new Intent(MainActivity.this, admin_dashboard.class);
+                                intent.putExtra("username",username_typed);
                                 startActivity(intent);
                             } else if (role[0].equals("student")) {
                                 Intent intent = new Intent(MainActivity.this, student_dashboard.class);
+                                intent.putExtra("username",username_typed);
                                 startActivity(intent);
                             }
                         } else {
