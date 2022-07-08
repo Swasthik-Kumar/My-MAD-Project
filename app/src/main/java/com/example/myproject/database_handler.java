@@ -80,10 +80,10 @@ public class database_handler extends SQLiteOpenHelper {
         values.put("password",password);
         values.put("role","Student");
         long k = db.insert(TABLE_NAME_LOGIN,null,values);
-        values.put("username",username);
+        values_student.put("username",username);
         values_student.put("name","Null");
         values_student.put("usn","Null");
-        values_student.put("sem","Null");
+        values_student.put("sem",0);
         values_student.put("phone","Null");
         long l = db.insert(TABLE_NAME_STUDENT,null,values_student);
         /*values_marks.put("subject 1",0);
