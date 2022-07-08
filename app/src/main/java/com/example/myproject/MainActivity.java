@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String username_typed = username.getText().toString();
                 String password_typed = password.getText().toString();
-                //login_handler.add_admin(username_typed,password_typed);
+               // login_handler.add_admin(username_typed,password_typed);
                 if(username_typed.equals("") || password_typed.equals("")) {
                     Toast.makeText(MainActivity.this, "All fields are mandatory", Toast.LENGTH_SHORT).show();
                 }

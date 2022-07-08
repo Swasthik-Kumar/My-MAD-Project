@@ -28,22 +28,22 @@ public class admin_dashboard extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+//       view_details.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(admin_dashboard.this, admin_view_info_page.class);
+//                startActivity(intent);
+//            }
+//        });
 
-       /* view_details.setOnClickListener(new View.OnClickListener() {
+       update_details.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(admin_dashboard.this, admin_view_info_page.class);
+                Intent intent = new Intent(admin_dashboard.this,admin_update_page.class);
+//                intent.putExtra("username",)
                 startActivity(intent);
             }
-        });*/
-
-       /* update_details.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(admin_dashboard.this,admin_add_labour_page.class);
-                startActivity(intent);
-            }
-        });*/
+        });
 
 
         delete_student.setOnClickListener(new View.OnClickListener() {

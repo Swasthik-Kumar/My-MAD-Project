@@ -42,7 +42,7 @@ public class admin_update_page extends AppCompatActivity{
         update = findViewById(R.id.admin_update_btn);
         cancel = findViewById(R.id.admin_update_cancel);
 
-        String username_got = getIntent().getStringExtra("username");
+//        String username_got = getIntent().getStringExtra("username");
         database_handler student_update_handler = new database_handler(this, "My_Project.db",null,1);
 
         update.setOnClickListener(new View.OnClickListener() {
@@ -64,13 +64,13 @@ public class admin_update_page extends AppCompatActivity{
                 }
                 else{
                     try{
-                       /* boolean t = student_update_handler.update_marks(username_got,name_entered,Integer.parseInt(age_entered),sem_entered,phone_entered,sub1_entered,Integer.parseInt(no_of_team_member_enterd),work_enterd,Integer.parseInt(wage_enterd),Integer.parseInt(working_days_enterd));
+                       boolean t = student_update_handler.update_marks(name_entered,Integer.parseInt(sub1_entered),Integer.parseInt(sub2_entered),Integer.parseInt(sub3_entered),Integer.parseInt(sub4_entered),Integer.parseInt(sub5_entered),Integer.parseInt(sub6_entered));
                         Toast.makeText(admin_update_page.this, "Information updated to database", Toast.LENGTH_SHORT).show();
-                        finish();*/
+                        finish();
 
 
                     } catch (Exception e) {
-                        Toast.makeText(admin_update_page.this, "Username already found", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(admin_update_page.this, "Username already found"+e, Toast.LENGTH_SHORT).show();
                     }
                 }
             }
