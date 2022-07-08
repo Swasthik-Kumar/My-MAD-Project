@@ -23,7 +23,7 @@ public class database_handler extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         String create_login_table = "CREATE TABLE if not exists login_table (username Text primary key,password Text, role Text)";
         sqLiteDatabase.execSQL(create_login_table);
-        String create_student_table = "CREATE TABLE if not exists student_table (username Text primary key,name Text ,usn Text, sem int,phno Text,foreign key (username) references login_table(username) on delete cascade)";
+        String create_student_table = "CREATE TABLE if not exists student_table (username Text primary key,name Text ,usn Text, sem int,phone Text,foreign key (username) references login_table(username) on delete cascade)";
         sqLiteDatabase.execSQL(create_student_table);
         String create_marks_table = "CREATE TABLE if not exists marks_table (username Text primary key,sub1 int,sub2 int,sub3 int,sub4 int,sub5 int,sub6 int,foreign key (username) references login_table(username) on delete cascade)";
         sqLiteDatabase.execSQL(create_marks_table);
@@ -67,7 +67,7 @@ public class database_handler extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put("username",username);
         values.put("password",password);
-        values.put("role","admin");
+        values.put("role","Admin");
         long k = db.insert(TABLE_NAME_LOGIN,null,values);
         db.close();
     }
@@ -75,19 +75,24 @@ public class database_handler extends SQLiteOpenHelper {
     public long add_student(String username, String password){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        ContentValues values_marks = new ContentValues();
+        ContentValues values_student = new ContentValues();
         values.put("username",username);
         values.put("password",password);
-        values.put("role","student");
+        values.put("role","Student");
         long k = db.insert(TABLE_NAME_LOGIN,null,values);
         values.put("username",username);
-        values_marks.put("subject 1",0);
+        values_student.put("name","Null");
+        values_student.put("usn","Null");
+        values_student.put("sem","Null");
+        values_student.put("phone","Null");
+        long l = db.insert(TABLE_NAME_STUDENT,null,values_student);
+        /*values_marks.put("subject 1",0);
         values_marks.put("subject 2",0);
         values_marks.put("subject 3",0);
         values_marks.put("subject 4",0);
         values_marks.put("subject 5",0);
         values_marks.put("subject 6",0);
-        long l = db.insert(TABLE_NAME_MARKS,null,values_marks);
+        long l = db.insert(TABLE_NAME_MARKS,null,values_marks);*/
         Log.d("mytag", String.valueOf(l));
         db.close();
         return l;

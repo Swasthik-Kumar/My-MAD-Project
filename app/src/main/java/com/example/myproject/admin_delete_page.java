@@ -20,10 +20,10 @@ public class admin_delete_page extends AppCompatActivity {
         setContentView(R.layout.admin_delete_page);
         username = findViewById(R.id.delete_admin_username);
         password = findViewById(R.id.delete_admin_password);
-        delete = findViewById(R.id.admin_delete_student_btn);
+        delete = findViewById(R.id.admin_add_student_btn);
         cancel = findViewById(R.id.admin_cancel_student_btn2);
 
-        database_handler admin_add_handler = new database_handler(this, "My_project.db",null,1);
+        database_handler admin_add_handler = new database_handler(this, "My_Project.db",null,1);
 
         delete.setOnClickListener(new View.OnClickListener() {
             @Override

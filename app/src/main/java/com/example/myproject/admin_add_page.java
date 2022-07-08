@@ -1,18 +1,19 @@
 package com.example.myproject;
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
+        import androidx.appcompat.app.AppCompatActivity;
 
-import androidx.appcompat.app.AppCompatActivity;
+        import android.os.Bundle;
+        import android.view.View;
+        import android.widget.Button;
+        import android.widget.EditText;
+        import android.widget.Toast;
 
-public class admin_add_page extends AppCompatActivity{
+public class admin_add_page extends AppCompatActivity {
     EditText username;
     EditText password;
     Button add;
     Button cancel;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,9 +21,8 @@ public class admin_add_page extends AppCompatActivity{
         setContentView(R.layout.admin_add_page);
         username = findViewById(R.id.add_admin_username);
         password = findViewById(R.id.add_admin_password);
-        add = findViewById(R.id.admin_delete_student_btn);
+        add = findViewById(R.id.admin_add_student_btn);
         cancel = findViewById(R.id.admin_cancel_student_btn);
-
 
         database_handler admin_add_handler = new database_handler(this, "My_Project.db",null,1);
 

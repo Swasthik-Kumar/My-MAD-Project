@@ -14,6 +14,31 @@
         android:theme="@style/Theme.MyProject"
         tools:targetApi="31">
         <activity
+            android:name=".admin_dashboard"
+            android:exported="false" />
+        <activity
+            android:name=".student_dashboard"
+            android:exported="false" />
+        <activity
+            android:name=".admin_add_student_page"
+            android:exported="false" />
+        <activity
+            android:name=".admin_add_page"
+            android:exported="false" />
+        <activity
+            android:name=".admin_view_all_students2"
+            android:exported="false" />
+        <activity
+            android:name=".admin_update_search_page"
+            android:exported="false" />
+        <activity
+            android:name=".admin_delete_page"
+            android:exported="false" />
+
+        <activity
+            android:name=".view_all_details"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

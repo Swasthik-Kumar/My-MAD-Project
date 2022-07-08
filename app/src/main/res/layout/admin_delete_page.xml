@@ -10,7 +10,7 @@
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/admin_delete_student_btn"
+            android:id="@+id/admin_add_student_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Delete"

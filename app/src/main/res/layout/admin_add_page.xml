@@ -47,7 +47,7 @@
         app:layout_constraintVertical_bias="0.366" />
 
     <Button
-        android:id="@+id/admin_delete_student_btn"
+        android:id="@+id/admin_add_student_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add"
@@ -65,6 +65,7 @@
         android:gravity="center"
         android:text="Add Student Page"
         android:textColor="@color/black"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"

@@ -35,7 +35,7 @@ public class admin_add_student_page extends AppCompatActivity {
         add = findViewById(R.id.admin_add_student);
         cancel = findViewById(R.id.admin_cancel_student);
 
-        database_handler admin_add_handler = new database_handler(this, "labour_management.db",null,1);
+        database_handler admin_add_handler = new database_handler(this, "My_Projectt.db",null,1);
 
         add.setOnClickListener(new View.OnClickListener() {
             @Override

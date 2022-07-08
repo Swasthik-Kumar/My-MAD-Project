@@ -1,44 +1,46 @@
 package com.example.myproject;
 
+import androidx.appcompat.app.AppCompatActivity;
 
-        import java.util.ArrayList;
+import android.os.Bundle;
+import android.widget.ListView;
+import android.widget.Toast;
 
-public class admin_view_info_pattern extends ArrayList<student_search_pattern> {
-    String name;
-    String usn;
-    String sem;
-    String phone_num;
+import java.util.ArrayList;
 
-    public landlord_search_pattern(String name, String usn, String sem,String phone_num) {
-        this.name = name;
-        this.usn = usn;
-        this.sem = sem;
-        this.phone_num = phone_num;
-    }
-    public String getName() {
-        return name;
-    }
+/*public class admin_view_info_page extends AppCompatActivity {
+    ListView listView;
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.admin_view_info_page);
+        listView = findViewById(R.id.admin_view_info_listview);
 
-    public String getUsn() {
-        return usn;
-    }
+        database_handler admin_view_info_handler = new database_handler(this, "My_Project.db", null, 1);
+        try {
+            ArrayList<admin_view_info_pattern> arrayList_display = new ArrayList<>();
+            ArrayList<admin_view_info_pattern> arrayList = new ArrayList<>();
+            ArrayList<admin_view_info_pattern> array = new ArrayList<>();
+            arrayList = admin_view_info_handler.get_users();
+            int count = arrayList.size();
+//        Toast.makeText(this, ""+count, Toast.LENGTH_LONG).show();
+            array = arrayList.get(0);
+//        Toast.makeText(this, ""+array, Toast.LENGTH_LONG).show();
+            for (int i = 0; i < count * 2; i += 2) {
 
-    public void setSem(String sem) {
-        this.sem = sem;
-    }
+//                Toast.makeText(this, "" + array.get(i), Toast.LENGTH_SHORT).show();
+                arrayList_display.add(new admin_view_info_pattern(R.drawable.ic_launcher_background, "" + array.get(i), "" + array.get(i + 1)));
 
-    public String getPhone_num() {
-        return phone_num;
-    }
+            }
 
-    public void setPhone_num(String phone_num) {
-        this.phone_num = phone_num;
+            custom_adapter_admin_view_info customadapter = new custom_adapter_admin_view_info(this, R.layout.landlord_search_page_pattern, arrayList_display);
+            listView.setAdapter((customadapter));
 
-
+        }
+        catch(Exception e){
+            Toast.makeText(this, "No notification", Toast.LENGTH_SHORT).show();
+        }
     }
 }
-
+*/

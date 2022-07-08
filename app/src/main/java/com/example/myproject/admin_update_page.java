@@ -1,6 +1,6 @@
 package com.example.myproject;
 
-/*import android.annotation.SuppressLint;
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -64,9 +64,9 @@ public class admin_update_page extends AppCompatActivity{
                 }
                 else{
                     try{
-                        boolean t = student_update_handler.admin_update(username_got,name_entered,Integer.parseInt(age_entered),sem_entered,phone_entered,sub1_entered,Integer.parseInt(no_of_team_member_enterd),work_enterd,Integer.parseInt(wage_enterd),Integer.parseInt(working_days_enterd));
+                       /* boolean t = student_update_handler.update_marks(username_got,name_entered,Integer.parseInt(age_entered),sem_entered,phone_entered,sub1_entered,Integer.parseInt(no_of_team_member_enterd),work_enterd,Integer.parseInt(wage_enterd),Integer.parseInt(working_days_enterd));
                         Toast.makeText(admin_update_page.this, "Information updated to database", Toast.LENGTH_SHORT).show();
-                        finish();
+                        finish();*/
 
 
                     } catch (Exception e) {
@@ -93,4 +93,4 @@ public class admin_update_page extends AppCompatActivity{
 
 
     }
-}*/
+}

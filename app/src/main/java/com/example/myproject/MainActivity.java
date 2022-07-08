@@ -1,15 +1,15 @@
 package com.example.myproject;
 
-import androidx.appcompat.app.AppCompatActivity;
+        import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
-import android.database.Cursor;
-import android.os.Bundle;
-import android.text.Editable;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
+        import android.content.Intent;
+        import android.database.Cursor;
+        import android.os.Bundle;
+        //import android.text.Editable;
+        import android.view.View;
+        import android.widget.Button;
+        import android.widget.EditText;
+        import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
     EditText username;
@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String username_typed = username.getText().toString();
                 String password_typed = password.getText().toString();
-                login_handler.add_admin(username_typed,password_typed);
+                //login_handler.add_admin(username_typed,password_typed);
                 if(username_typed.equals("") || password_typed.equals("")) {
                     Toast.makeText(MainActivity.this, "All fields are mandatory", Toast.LENGTH_SHORT).show();
                 }
@@ -44,11 +44,11 @@ public class MainActivity extends AppCompatActivity {
                         role[0] = login_handler_cursor.getString(2);
 
                         if (password_typed.equals(password_recevied[0])) {
-                            if (role[0].equals("admin")) {
+                            if (role[0].equals("Admin")) {
                                 Intent intent = new Intent(MainActivity.this, admin_dashboard.class);
                                 intent.putExtra("username",username_typed);
                                 startActivity(intent);
-                            } else if (role[0].equals("student")) {
+                            } else if (role[0].equals("Student")) {
                                 Intent intent = new Intent(MainActivity.this, student_dashboard.class);
                                 intent.putExtra("username",username_typed);
                                 startActivity(intent);
