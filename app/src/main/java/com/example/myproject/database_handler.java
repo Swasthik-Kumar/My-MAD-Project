@@ -75,17 +75,19 @@ public class database_handler extends SQLiteOpenHelper {
     public long add_student(String username, String password){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        ContentValues values_student = new ContentValues();
         values.put("username",username);
         values.put("password",password);
         values.put("role","Student");
         long k = db.insert(TABLE_NAME_LOGIN,null,values);
+        db.close();
+        SQLiteDatabase db1 = this.getWritableDatabase();
+        ContentValues values_student = new ContentValues();
         values_student.put("username",username);
         values_student.put("name","Null");
         values_student.put("usn","Null");
         values_student.put("sem",0);
         values_student.put("phone","Null");
-        long l = db.insert(TABLE_NAME_STUDENT,null,values_student);
+        long l = db1.insert(TABLE_NAME_STUDENT,null,values_student);
         /*values_marks.put("subject 1",0);
         values_marks.put("subject 2",0);
         values_marks.put("subject 3",0);
@@ -94,7 +96,7 @@ public class database_handler extends SQLiteOpenHelper {
         values_marks.put("subject 6",0);
         long l = db.insert(TABLE_NAME_MARKS,null,values_marks);*/
         Log.d("mytag", String.valueOf(l));
-        db.close();
+        db1.close();
         return l;
     }
 
@@ -102,12 +104,12 @@ public class database_handler extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values_marks = new ContentValues();
         values_marks.put("username",username_entered);
-        values_marks.put("subject 1",sub1);
-        values_marks.put("subject 2",sub2);
-        values_marks.put("subject 3",sub3);
-        values_marks.put("subject 4",sub4);
-        values_marks.put("subject 5",sub5);
-        values_marks.put("subject 6",sub6);
+        values_marks.put("sub1",sub1);
+        values_marks.put("sub2",sub2);
+        values_marks.put("sub3",sub3);
+        values_marks.put("sub4",sub4);
+        values_marks.put("sub5",sub5);
+        values_marks.put("sub6",sub6);
         long k = db.update(""+TABLE_NAME_MARKS,values_marks,"username=?",new String[]{username_entered});
         db.close();
         return true;
